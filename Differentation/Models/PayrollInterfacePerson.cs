@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Rota.PayrollInterface.Models
 {
-    public class PayrollInterfacePerson
+    public class PiPerson
     {
         public string ClientId { get; set; }
 
@@ -54,15 +54,15 @@ namespace Rota.PayrollInterface.Models
 
         public DateTime EndOfWorkPermittion { get; set; }
 
-        public PayrollInterfaceContract Contract { get; set; }
+        public PiContract Contract { get; set; }
 
-        public IEnumerable<PayrollInterfaceContract> FormerContracts { get; set; }
+        public IEnumerable<PiContract> FormerContracts { get; set; }
 
         public bool Inactive { get; set; }
 
-        public PayrollInterfacePerson() {
-            Contract = new PayrollInterfaceContract();
-            FormerContracts = new List<PayrollInterfaceContract>();
+        public PiPerson() {
+            Contract = new PiContract();
+            FormerContracts = new List<PiContract>();
         }
     }
 }

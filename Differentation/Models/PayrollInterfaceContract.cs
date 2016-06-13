@@ -16,7 +16,7 @@ namespace Rota.PayrollInterface.Models
     }
 
 
-    public class PayrollInterfaceContract
+    public class PiContract
     {
         public string Employment { get; set; }
 

@@ -43,7 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Diff\Differentatior.cs" />
+    <Compile Include="Diff\IComparisionStrategy.cs" />
+    <Compile Include="Diff\Version_3\GenericComparer.cs" />
+    <Compile Include="Diff\Version_2\GenericComparer.cs" />
+    <Compile Include="Diff\Version_1\GenericComparer.cs" />
+    <Compile Include="Diff\GenericComparer.cs" />
+    <Compile Include="Diff\Version_3\IComparisionStrategy.cs" />
     <Compile Include="Models\PayrollInterfaceContract.cs" />
     <Compile Include="Models\PayrollInterfacePerson.cs" />
     <Compile Include="Program.cs" />
