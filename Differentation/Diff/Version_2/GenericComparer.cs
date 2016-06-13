@@ -24,7 +24,7 @@ namespace Differentation.Diff.Version_2
             foreach(var field in typeof(T).GetProperties())
             {
                 var firstValue = first.GetType().GetProperty(field.Name).GetValue(first, null);
-                var secondValue = second.GetType().GetProperty(field.Name).GetValue(first, null);
+                var secondValue = second.GetType().GetProperty(field.Name).GetValue(second, null);
 
                 if (_comparisionStrategy.ShouldCallComparisionStrategyForProperty(field))
                 {

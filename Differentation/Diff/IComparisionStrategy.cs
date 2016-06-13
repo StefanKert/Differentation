@@ -27,7 +27,7 @@ namespace Differentation.Diff
         public bool Equals(T first, T second, PropertyInfo propertyToCompare)
         {
             var firstValue = first.GetType().GetProperty(propertyToCompare.Name).GetValue(first, null);
-            var secondValue = second.GetType().GetProperty(propertyToCompare.Name).GetValue(first, null);
+            var secondValue = second.GetType().GetProperty(propertyToCompare.Name).GetValue(second, null);
             Func<object, object, bool> isEqualMethod;
 
             if (IsEqualMethods.TryGetValue(propertyToCompare.PropertyType, out isEqualMethod))

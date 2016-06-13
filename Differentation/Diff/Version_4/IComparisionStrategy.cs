@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Differentation.Diff.Version_3
+namespace Differentation.Diff.Version_4
 {
     public interface IComparisionStrategy<T>
     {

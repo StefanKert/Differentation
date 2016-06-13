@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -6,24 +7,24 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Differentation.Diff.Version_3
+namespace Differentation.Diff.Version_4
 {
     public class GenericComparer<T>
     {
-        private readonly Diff.Version_3.IComparisionStrategy<T> _comparisionStrategy;
+        private readonly IComparisionStrategy<T> _comparisionStrategy;
         private PropertyInfo[] _fields;
 
         public T First { get; set; }
         public T Second { get; set; }
 
-        public static Dictionary<int, Func<T, object>> getMethods = new Dictionary<int, Func<T, object>>();
+        public static ConcurrentDictionary<int, Func<T, object>> getMethods = new ConcurrentDictionary<int, Func<T, object>>();
 
         public GenericComparer(IComparisionStrategy<T>  comparisionStrategy){
             _comparisionStrategy = comparisionStrategy;
             _fields = typeof(T).GetProperties();
             foreach (var field in _fields) {
                 if (!getMethods.ContainsKey(field.Name.GetHashCode()))
-                    getMethods.Add(field.Name.GetHashCode(), CreateGetterMethodForField(field));
+                    getMethods.TryAdd(field.Name.GetHashCode(), CreateGetterMethodForField(field));
             }
         }
 
